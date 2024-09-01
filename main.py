@@ -85,12 +85,20 @@ def plot_transactions(df):
     net_total = income_df["amount"].cumsum() - expense_df["amount"].cumsum()
 
     # Plotting the Income and Expense daily values
+    # plt.figure(figsize=(10, 5))
+    # plt.plot(income_df.index, income_df["amount"], label="Income", color="g")
+    # plt.plot(expense_df.index, expense_df["amount"], label="Expense", color="r")
+    # plt.xlabel("Date")
+    # plt.ylabel("Amount")
+    # plt.title("Income and Expenses Over Time")
+
+    
+    # Plotting the cumulative net total
     plt.figure(figsize=(10, 5))
-    plt.plot(income_df.index, income_df["amount"], label="Income", color="g")
-    plt.plot(expense_df.index, expense_df["amount"], label="Expense", color="r")
+    plt.plot(net_total.index, net_total, label="Running Net Total", color="b")
     plt.xlabel("Date")
-    plt.ylabel("Amount")
-    plt.title("Income and Expenses Over Time")
+    plt.ylabel("Net Total Amount")
+    plt.title("Running Net Total Over Time")
     plt.legend()
     plt.grid(True)
     plt.show()
